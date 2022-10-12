@@ -38,6 +38,7 @@ public class Deck {
         System.out.println();
     }
     public void hand() {
+        Collections.shuffle(cartas);
         for(int i = 0; i <= 4; i++){
             System.out.println(cartas.get(i));
         }

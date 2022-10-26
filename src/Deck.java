@@ -24,20 +24,24 @@ public class Deck {
         System.out.println("Se mezcló el Deck.");
         System.out.println();
     }
-    public void head(){
+    public void head() throws Exception{
         System.out.println(cartas.get(0));
         cartas.remove(0);
         System.out.println("Quedan " + cartas.size() + " cartas en el Deck");
-        System.out.println();
+        if (cartas.size() == 0){
+            throw new Exception("Se han agotado las cartas");
+        }
     }
-    public void pick() {
+    public void pick() throws Exception{
         Random random = new Random();
         System.out.println(cartas.get(random.nextInt(cartas.size())));
         cartas.remove(random.nextInt(cartas.size()));
         System.out.println("Quedan " + cartas.size() + " cartas en el Deck");
-        System.out.println();
+        if (cartas.size() == 0){
+            throw new Exception("Se han agotado las cartas");
+        }
     }
-    public void hand() {
+    public void hand() throws Exception{
         Collections.shuffle(cartas);
         for(int i = 0; i <= 4; i++){
             System.out.println(cartas.get(i));
@@ -47,5 +51,8 @@ public class Deck {
         }
         System.out.println("Quedan " + cartas.size()+ " cartas en el Deck");
         System.out.println();
+        if (cartas.size() == 0){
+            throw new Exception("Se han agotado las cartas");
+        }
     }
 }
